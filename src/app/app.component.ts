@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FibonacciService } from './services/fibonacci.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-scss-boilerplate';
+  title = 'energy-fibo-test';
+
+  data$: Observable<any> | undefined;
+
+  constructor(private fibonacciService: FibonacciService) { }
+  
+  callApi() {
+    this.data$ = this.fibonacciService.callApi();
+  }
 }

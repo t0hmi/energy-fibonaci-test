@@ -1,1 +1,4 @@
-<div class="test">test</div>
+<div class="container">
+    <app-data-response *ngIf="data$ | async as data" [fibonacci]="data.value" [params]="data.params" />
+    <span (click)="callApi()">Call API</span>
+</div>
